@@ -1,0 +1,11 @@
+.web-header{
+    background: $color-grastur;
+    padding: 15px;
+    color: $color-silver;
+    text-align: center;
+    .web-title{
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: $font-size-large;
+    }
+}
