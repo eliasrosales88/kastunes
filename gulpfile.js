@@ -14,7 +14,7 @@ gulp.task("default", ["html", "sass"], function(){
     gulp.watch(["src/scss/*.scss","src/scss/**/*.scss"],["sass"]);
 
     // obsevar cambio en los archivos html y entonces recarga el navegador
-    gulp.watch("src/*.html", ["html"]); 
+    gulp.watch("src/**/*.html", ["html"]); 
 });
 
     
