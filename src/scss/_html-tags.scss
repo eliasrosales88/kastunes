@@ -3,15 +3,5 @@ body{
     font-family: $main-font-family;
     font-size: $font-size-base;
     color: $main-text-color;
-
-    @include if-mobile-lanscape{
-        background: $color-amazing-39;
-    }
-    @include if-tablet-portrait{
-        background: $color-sidonia-orange;
-    }
-    @include if-tablet-lanscape{
-        background: $color-grastur; 
-    }
 }
 
