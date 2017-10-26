@@ -10,6 +10,14 @@
         height: 300px;
         max-height: 300px;
         overflow: hidden;
+        @include if-mobile-landscape{
+            width: calc(25% - 10px);
+        } 
+
+        @include if-desktop{
+            width: calc(20% - 10px);
+        }
+
         .cover{
             width: 100%;
         }

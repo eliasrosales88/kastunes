@@ -1,5 +1,5 @@
-@mixin if-mobile-lanscape{
-    @media (min-width: #{$mobile-portrait-width} + 1) and (max-width: #{$mobile-landscape-width}){
+@mixin if-mobile-landscape{
+    @media (min-width: #{$mobile-portrait-width} + 1){
         @content;    
     }
 }
@@ -16,7 +16,7 @@
     }
 }
 
-@mixin if-tablet-lanscape{
+@mixin if-tablet-landscape{
     @media (min-width: #{$tablet-landscape-width}){
         @content;    
     }
@@ -35,7 +35,7 @@
 }
 
 @mixin if-desktop{
-    @include if-table-landscape(){
+    @include if-tablet-landscape(){
         @content
     }
 }
