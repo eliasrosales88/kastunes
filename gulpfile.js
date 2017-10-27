@@ -3,9 +3,12 @@ var sass = require("gulp-sass");
 var notify = require("gulp-notify");
 var browserSync = require("browser-sync").create();
 var gulpImport = require('gulp-html-import');
+var tap = require("gulp-tap");
+var browserify = require("browserify");
+var buffer = require("gulp-buffer");
 
 // definimos la tarea por defecto
-gulp.task("default", ["html", "sass"], function(){
+gulp.task("default", ["html", "sass", "js"], function(){
 
     // iniciamos el servidor de desarrollo
     browserSync.init({ server: "dist/" });
@@ -13,8 +16,11 @@ gulp.task("default", ["html", "sass"], function(){
     // observa cambios en los archivos SASS, y entonces ejectua la tarea 'sass'
     gulp.watch(["src/scss/*.scss","src/scss/**/*.scss"],["sass"]);
 
-    // obsevar cambio en los archivos html y entonces recarga el navegador
-    gulp.watch("src/**/*.html", ["html"]); 
+    // obsevar cambio en los archivos html y entonces ejectua la tarea 'html'
+    gulp.watch(["src/*.html", "src/**/*.html"], ["html"]); 
+
+    // observa cambios en los archivos JS y entonces ejectua la tarea 'js'
+    gulp.watch(["src/js/*.js", "src/js/**/*.js"], ["js"]);
 });
 
     
@@ -41,3 +47,23 @@ gulp.task("html", function () {
         .pipe(browserSync.stream())
         .pipe(notify("HTML importado"));
 });
+
+ // COMPILAR  Y GENERAR UN UNICO JAVASCRIPT
+
+ gulp.task("js", function(){
+     gulp.src("src/js/main.js")
+         .pipe(tap(function(file){ // tap nos permite ejecutar una funcion por cada fichero seleccionado en gulp.src
+            // reemplazamos el contenido del fichero por lo que nos devuelve browserify pasandole el fichero
+            file.contents = browserify(file.path) // creamos una instancia de browserify en base al archivo
+                            .transform("babelify", {presets: ["es2015"]}) // traduce nuestro codigo de ES6 -> ES5
+                            .bundle() // compilamos el archivo
+                            .on("error", function(error){ // en caso de error, mostramos una notificacion
+                                return notify().write(error);
+                            });
+
+         }))
+         .pipe(buffer())// convertimos a buffer para que funcione el siguiente pipe
+         .pipe(gulp.dest("dist/")) // lo guardamos en la carpeta dist
+         .pipe(browserSync.stream()) // recargamos el navegador
+         .pipe(notify("JS Compilado"));
+ });
