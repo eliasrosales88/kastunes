@@ -1,1 +1,1 @@
-console.log("Hola alberto");
+let $ = require("jquery");
