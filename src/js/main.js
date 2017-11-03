@@ -1,8 +1,10 @@
 window.$ = window.jQuery = require("jquery"); // Hace que jQuery sea accesible publicamente
 
 import {SongsService} from "./SongsService";
+import UIManager from "./UIManager";
 
 const songService = new SongsService("/songs/");
+const songsListUIManager = new UIManager(".songs-list");
 
 //Cargar la lista de canciones con AJAX
 
@@ -13,7 +15,7 @@ songService.list(songs => {
     if (songs.length == 0){
         
                     //Mostramos el estado vacio
-                    $(".songs-list").removeClass("loading").addClass("empty");
+                    songsListUIManager.setEmpty();
                 }else{
         
                     // Componemos el html con todas las canciones
@@ -31,14 +33,14 @@ songService.list(songs => {
         
                     //Quitamos el mensaje de cargando y mostrando el listado de canciones
         
-                    $(".songs-list").removeClass("loading").addClass("ideal");
+                    songsListUIManager.setIdeal();
                 }   
 }, 
     
     error =>{
 
          //Mostrar el estado de error
-         $(".songs-list").removeClass("loading").addClass("error");
+         songsListUIManager.setError();
          
          // Hacemos log del error en la consola
          console.error("Error al cargar las canciones", error);
