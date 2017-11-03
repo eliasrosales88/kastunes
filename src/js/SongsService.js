@@ -3,15 +3,14 @@ const $ = require("jquery");
 export class SongsService {
     
     
-    
-    constructor(){
-
+    constructor(url){
+        this.url = url;
     }
 
     // Obtener un listado de canciones
     list(successCallback, errorCallback){
         $.ajax({
-            url:"/songs/",
+            url:this.url,
             success: successCallback,
             error: errorCallback
             
@@ -19,17 +18,52 @@ export class SongsService {
     }
 
     //Crear o actualizar cancion
-    save(song){}
+    save(song, successCallback, errorCallback){
+        if(song.id){
+            this.update(song, successCallback, errorCallback);
+        }else{
+            this.create(song, successCallback, errorCallback);
+        }
+    }
 
     // Crear una cancion
-    create(song){}
+    create(song, successCallback, errorCallback){
+        $.ajax({
+            url:this.url,
+            method: "post",
+            data: song,
+            success: successCallback,
+            error: errorCallback
+        })
+    }
 
     // Obtener el detalle de una cancion
-    getDetail(songId){}
+    getDetail(songId, successCallback, errorCallback){
+        $.ajax({
+            url: `${this.url}${songId}`,
+            success: successCallback,
+            error: errorCallback
+        })
+    }
 
     // Actualizar una cancion
-    update(){}
+    update(song, successCallback, errorCallback){
+        $.ajax({
+            url:`${this.url}${song.id}`,
+            method: "put",
+            data: song,
+            success: successCallback,
+            error: errorCallback
+        })
+    }
     
-    // Borrar una cancion
-    delete(songId){}
+    // Borrar una cancion (songsService.delete(4, response => {}, error => {}))
+    delete(songId, successCallback, errorCallback){
+       $.ajax({
+           url: `${this.url}${songId}`,
+           method: 'delete',
+           success: successCallback,
+           error: errorCallback
+       }) 
+    }
 }

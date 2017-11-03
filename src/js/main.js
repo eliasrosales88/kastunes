@@ -2,7 +2,7 @@ window.$ = window.jQuery = require("jquery"); // Hace que jQuery sea accesible p
 
 import {SongsService} from "./SongsService";
 
-const songService = new SongsService();
+const songService = new SongsService("/songs/");
 
 //Cargar la lista de canciones con AJAX
 
