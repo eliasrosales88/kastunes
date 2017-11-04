@@ -1,13 +1,13 @@
 const $ = require("jquery");
 
 import UIManager from './UIManager';
-import PubSub from 'pubsub-js';
 
 export default class SongFormManager extends UIManager{
 
-        constructor(elementSelector, songsService){
+        constructor(elementSelector, songsService, pubSub){
            super(elementSelector); // llamada al constructor de la clase UIManager
             this.songsService = songsService;
+            this.pubSub = pubSub;
         }
 
         init(){
@@ -54,7 +54,7 @@ export default class SongFormManager extends UIManager{
             }
             this.songsService.save(song, success => {
                 // Recargar el listado de canciones
-                PubSub.publish("new-song", song); // Publicamos el evento que informa de la creacion de una cancion
+                this.pubSub.publish("new-song", song); // Publicamos el evento que informa de la creacion de una cancion
                 this.resetForm();
                 this.setIdeal();
             }, error =>{

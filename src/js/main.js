@@ -8,13 +8,9 @@ import PubSub from "pubsub-js";
 
 const songService = new SongsService("/songs/");
 const songsListUIManager = new UIManager(".songs-list");
-const songsListManager = new SongsListManager(songService, songsListUIManager );
 
+const songsListManager = new SongsListManager(songService, songsListUIManager, PubSub);
 songsListManager.init();
 
-const songFormManager = new SongFormManager(".song-form", songService);
+const songFormManager = new SongFormManager(".song-form", songService, PubSub);
 songFormManager.init();
-
-PubSub.subscribe("new-song", function(topic, song){
-    console.log("SE HA CREADO UNA NUEVA CANCION", song);
-});
