@@ -1,3 +1,5 @@
+import PubSub from "pubsub-js";
+
 export default class SongsListManager{
     constructor(songsService, uiManager){
         this.songsService = songsService;
@@ -5,6 +7,9 @@ export default class SongsListManager{
     }
     init(){
         this.loadSongs();
+        PubSub.subscribe("new-song", (topic, song) => {
+            this.loadSongs();
+        });
     }
 
     loadSongs(){

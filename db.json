@@ -47,6 +47,72 @@
       "title": "Muchacho",
       "cover_url": "",
       "id": 8
+    },
+    {
+      "artist": "Coldplay",
+      "title": "Yellow",
+      "cover_url": "",
+      "id": 9
+    },
+    {
+      "artist": "Blink 182",
+      "title": "All the small things",
+      "cover_url": "",
+      "id": 10
+    },
+    {
+      "artist": "Aerosmith",
+      "title": "Pink",
+      "cover_url": "",
+      "id": 11
+    },
+    {
+      "artist": "Caramelos de cianuro",
+      "title": "Veronica",
+      "cover_url": "",
+      "id": 12
+    },
+    {
+      "artist": "Ricardo Arjona",
+      "title": "El Problema",
+      "cover_url": "",
+      "id": 13
+    },
+    {
+      "artist": "Ricardo Arjona",
+      "title": "Desnuda",
+      "cover_url": "",
+      "id": 14
+    },
+    {
+      "artist": "Red Hot Chilli Peppers",
+      "title": "ACDF",
+      "cover_url": "",
+      "id": 15
+    },
+    {
+      "artist": "Chino y Nacho",
+      "title": "Mi nina bonita",
+      "cover_url": "",
+      "id": 16
+    },
+    {
+      "artist": "Adele",
+      "title": "Hello",
+      "cover_url": "",
+      "id": 17
+    },
+    {
+      "artist": "Bloc Party",
+      "title": "Flux",
+      "cover_url": "https://images.genius.com/5e55520ffb5321cc437f041d78ba0331.1000x854x1.jpg",
+      "id": 18
+    },
+    {
+      "artist": "Kasabian",
+      "title": "Re-wired",
+      "cover_url": "https://images.genius.com/5e55520ffb5321cc437f041d78ba0331.1000x854x1.jpg",
+      "id": 19
     }
   ]
 }

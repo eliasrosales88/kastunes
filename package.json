@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server":"json-server --static ./dist --port 3100 db.json"
+    "server": "json-server --static ./dist --port 3100 db.json"
   },
   "keywords": [],
   "author": "",
@@ -28,7 +28,8 @@
     "gulp-uglify": "^3.0.0",
     "jquery": "^3.2.1",
     "node-sass": "^4.5.3",
-    "postcss": "^6.0.13"
+    "postcss": "^6.0.13",
+    "pubsub-js": "^1.5.7"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
