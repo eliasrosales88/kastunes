@@ -15,7 +15,7 @@ export default class UIManager{
         $(this.element).removeClass(this.uiStateClasses).addClass("loading");
     }
     setError(){
-        $(this.element).removeClass(this.uiStateClasses).addClass("Error");
+        $(this.element).removeClass(this.uiStateClasses).addClass("error");
     }
     setPartial(){
         $(this.element).removeClass(this.uiStateClasses).addClass("partial");

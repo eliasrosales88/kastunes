@@ -1,9 +1,52 @@
 {
-    "songs":[
-        {"id": 1, "title":"Startlight", "artist":"Muse", "cover_url":"https://images-na.ssl-images-amazon.com/images/I/81eIMvbLnfL._SL1500_.jpg"},
-        {"id": 2, "title":"Ultraviolet", "artist":"U2", "cover_url":"https://s-media-cache-ak0.pinimg.com/originals/50/5f/1c/505f1c3c90e7dfa9950a825be09d3944.jpg"},
-        {"id": 3, "title":"Encore", "artist":"Red Hot Chili Peppers", "cover_url":"http://images.genius.com/047e4c2909c839d4acc141d9cc746157.1000x1000x1.jpg"},
-        {"id": 4, "title":"Shadow of the day", "artist":"Linkin Park", "cover_url":"http://2.bp.blogspot.com/-42OZPZ_AfE0/UigZql1Y9FI/AAAAAAAAA4Y/vM1TsnVF0fo/s1600/Linkin_Park_Shadow_of_the_Day_by_JustMarDesign.png"},
-        {"id": 5, "title":"You're in love with a psycho", "artist":"Kasabian", "cover_url":"http://img.europapress.es/fotoweb/fotonoticia_20170317110403_640.jpg"}
-    ]
+  "songs": [
+    {
+      "id": 1,
+      "title": "Startlight",
+      "artist": "Muse",
+      "cover_url": "https://images-na.ssl-images-amazon.com/images/I/81eIMvbLnfL._SL1500_.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Ultraviolet",
+      "artist": "U2",
+      "cover_url": "https://s-media-cache-ak0.pinimg.com/originals/50/5f/1c/505f1c3c90e7dfa9950a825be09d3944.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Encore",
+      "artist": "Red Hot Chili Peppers",
+      "cover_url": "http://images.genius.com/047e4c2909c839d4acc141d9cc746157.1000x1000x1.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Shadow of the day",
+      "artist": "Linkin Park",
+      "cover_url": "http://2.bp.blogspot.com/-42OZPZ_AfE0/UigZql1Y9FI/AAAAAAAAA4Y/vM1TsnVF0fo/s1600/Linkin_Park_Shadow_of_the_Day_by_JustMarDesign.png"
+    },
+    {
+      "id": 5,
+      "title": "You're in love with a psycho",
+      "artist": "Kasabian",
+      "cover_url": "http://img.europapress.es/fotoweb/fotonoticia_20170317110403_640.jpg"
+    },
+    {
+      "artist": "Placebo",
+      "title": "Meds",
+      "cover_url": "",
+      "id": 6
+    },
+    {
+      "artist": "The Strokes",
+      "title": "Reptilia",
+      "cover_url": "https://images.genius.com/5e55520ffb5321cc437f041d78ba0331.1000x854x1.jpg",
+      "id": 7
+    },
+    {
+      "artist": "Kings of Leon",
+      "title": "Muchacho",
+      "cover_url": "",
+      "id": 8
+    }
+  ]
 }
