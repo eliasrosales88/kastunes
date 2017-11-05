@@ -1,12 +1,19 @@
-export default class SongsListManager{
+import UIManager from './UIManager';
 
-    constructor(songsService, uiManager, pubSub){
+export default class SongsListManager extends UIManager {
+
+    constructor(elementSelector, songsService, pubSub){
+        super(elementSelector); // Llamada al constructor de la clase UIManager
         this.songsService = songsService;
-        this.uiManager = uiManager;
         this.pubSub = pubSub;
     }
     init(){
         this.loadSongs();
+        let self = this;
+        this.element.on("click",".song", function(){
+            let songId = this.dataset.id;
+            self.deleteSong(songId);
+        });
         this.pubSub.subscribe("new-song", (topic, song) => {
             this.loadSongs();
         });
@@ -18,16 +25,16 @@ export default class SongsListManager{
                 // Comprobamos si hay canciones
                 if (songs.length == 0){
                     //Mostramos el estado vacio
-                    this.uiManager.setEmpty();
+                    this.setEmpty();
                 }else{
                     // Componemos el html con todas las canciones
                     this.renderSongs(songs);
                     //Quitamos el mensaje de cargando y mostrando el listado de canciones
-                    this.uiManager.setIdeal();
+                    this.setIdeal();
                 }   
             }, error =>{
                 //Mostrar el estado de error
-                this.uiManager.setError();
+                this.setError();
                 // Hacemos log del error en la consola
                 console.error("Error al cargar las canciones", error);
                 });
@@ -40,7 +47,7 @@ export default class SongsListManager{
             }
 
         // Metemos el html en el div que contiene las canciones
-        this.uiManager.setIdealHtml(html);
+        this.setIdealHtml(html);
     }
 
     renderSong(song){
@@ -51,10 +58,19 @@ export default class SongsListManager{
             srcset = ' srcset="img/disk-150px.png 150w, img/disk-250px.png 250w, img/disk-300px.png 300w"';
         }
 
-        return `<article class="song">
+        return `<article class="song" data-id="${song.id}">
         <img src="${cover_url}" alt="${song.artist} - ${song.title}" class="cover"${srcset}>
         <div class="artist">${song.artist}</div>
         <div class="title">${song.title}</div>
     </article>`;
+    }
+
+    deleteSong(songId){
+        this.setLoading();
+        this.songsService.delete(songId, success =>{
+            this.loadSongs();
+        }, error => {
+            this.setError();
+        });
     }
 }
